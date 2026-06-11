@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: exam-prep-pro-backend
+    env: node
+    buildCommand: npm install && pip3 install pandas openpyxl
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
