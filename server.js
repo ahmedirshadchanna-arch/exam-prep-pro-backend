@@ -66,8 +66,8 @@ app.post('/api/domain/import', upload.single('excel_file'), (req, res) => {
     // Call Python Parser using uv
     const pythonScript = path.join(__dirname, 'parser.py');
     
-    // We will use uv to run the python script to ensure it has pandas/openpyxl
-    const command = `uv run ${pythonScript} "${filePath}" "${domainName}" "${dbFile}"`;
+    // Call Python Parser using python3 (native cloud environment)
+    const command = `python3 ${pythonScript} "${filePath}" "${domainName}" "${dbFile}"`;
     
     exec(command, (error, stdout, stderr) => {
         // Cleanup uploaded file
